@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 import dash
 from dash import dcc, html
@@ -56,6 +57,9 @@ fig_bar = px.bar(df, x="Fruit", y="Price per kg (RUB)", color="City", barmode="g
 # Создание Dash-приложения для визуализации данных
 app = dash.Dash(__name__)
 
+# Добавляем сервер для работы с gunicorn
+server = app.server
+
 # Определение макета приложения
 app.layout = html.Div(children=[
     html.H1(children='AI USM разработал: Анализ цен на фрукты в городах России с использованием 3D моделей и интерактивных графиков'),
@@ -76,5 +80,7 @@ app.layout = html.Div(children=[
     ])
 ])
 
-# Добавляем эту строку для работы с gunicorn
-server = app.server
+if __name__ == '__main__':
+    # Запуск приложения
+    port = int(os.environ.get('PORT', 8050))
+    app.run_server(debug=True, host='0.0.0.0', port=port)
