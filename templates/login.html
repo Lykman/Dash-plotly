@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div style="text-align: center;">
+        <!-- Логотип -->
+        <img src="{{ url_for('static', filename='AI_USM_AppIcon_circle (1).png') }}" alt="Logo" style="width: 150px;">
+
+        <!-- Приветственное сообщение -->
+        <h1>Вас приветствует AI USM</h1>
+        
+        <h2>Вход в систему</h2>
+        <form method="POST" style="display: inline-block; text-align: left;">
+            <label for="username">Имя пользователя:</label><br>
+            <input type="text" id="username" name="username" required><br>
+            <label for="password">Пароль:</label><br>
+            <input type="password" id="password" name="password" required><br><br>
+            <input type="submit" value="Войти">
+        </form>
+        <br><br>
+        <a href="{{ url_for('register') }}">Нет аккаунта? Зарегистрироваться здесь.</a>
+        
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul style="color: red;">
+              {% for message in messages %}
+                <li>{{ message }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+    </div>
+</body>
+</html>
