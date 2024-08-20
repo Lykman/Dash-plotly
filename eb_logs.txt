@@ -1,4 +1,0 @@
-Retrieving logs...
-Logs were saved to /Users/ildar/Downloads/my_dash_app/.elasticbeanstalk/logs/240811_213644
-Logs were saved to /Users/ildar/Downloads/my_dash_app/.elasticbeanstalk/logs/240811_213644
-Updated symlink at /Users/ildar/Downloads/my_dash_app/.elasticbeanstalk/logs/latest

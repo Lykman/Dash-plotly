@@ -1,21 +1,34 @@
+/* Общие стили */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    color: #333;
+    background-color: #ffffff; /* Белый фон */
+    color: #000000; /* Черный текст */
+    margin: 0;
+    padding: 0;
 }
 
-h1 {
-    font-size: 36px;
+h1, h2 {
     color: #4CAF50;
 }
 
-h2 {
-    font-size: 28px;
-    color: #333;
+.container {
+    text-align: center;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    width: 150px;
+    margin-bottom: 30px;
 }
 
 form {
     margin-top: 20px;
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #000000;
 }
 
 input[type="text"], input[type="password"] {
@@ -23,8 +36,10 @@ input[type="text"], input[type="password"] {
     margin-top: 5px;
     margin-bottom: 15px;
     width: 100%;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
+    border: 1px solid #4CAF50;
+    border-radius: 5px;
+    background-color: #2e2e2e;
+    color: #ffffff;
 }
 
 input[type="submit"] {
@@ -32,8 +47,10 @@ input[type="submit"] {
     color: white;
     padding: 10px 15px;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
     width: 100%;
+    box-shadow: 0px 0px 10px #4CAF50;
 }
 
 input[type="submit"]:hover {
@@ -47,4 +64,101 @@ a {
 
 a:hover {
     text-decoration: underline;
+}
+
+.graph-container {
+    margin-top: 20px;
+    background-color: #ffffff; /* Белый фон для контейнера графиков */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #cccccc; /* Легкая тень */
+}
+
+/* Адаптивные стили для разных экранов */
+@media (max-width: 768px) { /* Смартфоны и маленькие экраны */
+    .container {
+        padding: 10px;
+        max-width: 100%;
+    }
+
+    .logo {
+        width: 100px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    form {
+        padding: 10px;
+    }
+
+    .graph-container {
+        margin-top: 10px;
+        padding: 10px;
+    }
+
+    .responsive-iframe {
+        height: 60vh; /* Уменьшенная высота для мобильных устройств */
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) { /* Планшеты и средние экраны */
+    .container {
+        padding: 20px;
+        max-width: 90%;
+    }
+
+    .logo {
+        width: 120px;
+    }
+
+    .graph-container {
+        margin-top: 20px;
+        padding: 15px;
+    }
+
+    .responsive-iframe {
+        height: 70vh;
+    }
+}
+
+@media (min-width: 1025px) { /* Десктопы и большие экраны */
+    .container {
+        padding: 20px;
+        max-width: 1200px;
+    }
+
+    .logo {
+        width: 150px;
+    }
+
+    .graph-container {
+        margin-top: 20px;
+        padding: 20px;
+    }
+
+    .responsive-iframe {
+        height: 80vh;
+    }
+}
+
+@media (min-width: 1600px) { /* Очень большие экраны, например, телевизоры */
+    .container {
+        padding: 30px;
+        max-width: 1400px;
+    }
+
+    .logo {
+        width: 200px;
+    }
+
+    .graph-container {
+        margin-top: 30px;
+        padding: 25px;
+    }
+
+    .responsive-iframe {
+        height: 90vh;
+    }
 }

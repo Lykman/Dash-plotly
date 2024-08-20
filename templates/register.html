@@ -3,28 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Регистрация</title>
+    <title>Регистрация в AI USM</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    
+    <!-- Добавляем ссылки на фавиконы и мета-теги -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='site.webmanifest') }}">
+    <link rel="mask-icon" href="{{ url_for('static', filename='safari-pinned-tab.svg') }}" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
 </head>
 <body>
-    <div style="text-align: center;">
-        <!-- Логотип -->
-        <img src="{{ url_for('static', filename='your_logo.png') }}" alt="Logo" style="width: 150px;">
-
-        <!-- Приветственное сообщение -->
-        <h1>Вас приветствует AI USM</h1>
+    <div class="container">
+        <img src="{{ url_for('static', filename='AI_USM_AppIcon_circle (1).png') }}" alt="Logo" class="logo">
+        <h1>Добро пожаловать в AI USM</h1>
         
         <h2>Регистрация</h2>
-        <form method="POST" style="display: inline-block; text-align: left;">
+        <form method="POST">
             <label for="username">Имя пользователя:</label><br>
             <input type="text" id="username" name="username" required><br>
             <label for="password">Пароль:</label><br>
             <input type="password" id="password" name="password" required><br><br>
             <input type="submit" value="Зарегистрироваться">
         </form>
-        <br><br>
+        <br>
         <a href="{{ url_for('login') }}">Уже есть аккаунт? Войти здесь.</a>
         
-        <!-- Вывод flash сообщений -->
         {% with messages = get_flashed_messages() %}
           {% if messages %}
             <ul style="color: red;">

@@ -1,16 +1,119 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    
+    <!-- Добавляем ссылки на фавиконы и мета-теги -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='site.webmanifest') }}">
+    <link rel="mask-icon" href="{{ url_for('static', filename='safari-pinned-tab.svg') }}" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
 </head>
 <body>
-    <div style="text-align: center;">
-        <img src="{{ url_for('static', filename='AI_USM_AppIcon_circle (1).png') }}" alt="Logo" style="width: 150px;">
-        <h1>Вас приветствует AI USM</h1>
-        <iframe src="/dash/" width="100%" height="600px" style="border:none;"></iframe>
+    <div class="container">
+        <img src="{{ url_for('static', filename='AI_USM_AppIcon_circle (1).png') }}" alt="Logo" class="logo">
+        <h1>Добро пожаловать в AI USM</h1>
+        
+        <!-- Контейнер для графиков с белым фоном -->
+        <div class="graph-container">
+            <iframe src="/dash/" class="responsive-iframe"></iframe>
+        </div>
     </div>
+
+    <!-- Стили -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff; /* Белый фон для всей страницы */
+            color: #000000; /* Черный цвет текста */
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #4CAF50;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            max-width: 1200px; /* Максимальная ширина контейнера для больших экранов */
+            margin: 0 auto;
+        }
+
+        .logo {
+            width: 150px;
+            margin-bottom: 30px;
+        }
+
+        .graph-container {
+            margin-top: 20px;
+            width: 100%;
+            background-color: #ffffff; /* Белый фон для контейнера графиков */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px #cccccc; /* Легкая тень для отделения графиков */
+        }
+
+        .responsive-iframe {
+            width: 100%;
+            height: 80vh; /* 80% высоты окна */
+            border: none;
+        }
+
+        @media (max-width: 1200px) {
+            .container {
+                max-width: 90%; /* Ширина контейнера уменьшается на экранах до 1200px */
+                padding: 10px;
+            }
+
+            .graph-container {
+                padding: 15px; /* Уменьшаем padding для графиков на средних экранах */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .logo {
+                width: 120px; /* Уменьшаем логотип на маленьких экранах */
+            }
+
+            h1 {
+                font-size: 24px; /* Уменьшаем размер заголовка */
+            }
+
+            .graph-container {
+                margin-top: 10px;
+                padding: 10px; /* Уменьшаем padding для графиков на мобильных устройствах */
+            }
+
+            .responsive-iframe {
+                height: 60vh; /* Уменьшенная высота iframe на мобильных устройствах */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                width: 100px; /* Еще больше уменьшаем логотип на очень маленьких экранах */
+            }
+
+            h1 {
+                font-size: 20px; /* Еще больше уменьшаем размер заголовка */
+            }
+
+            .responsive-iframe {
+                height: 50vh; /* Еще меньше высота iframe для очень маленьких экранов */
+            }
+        }
+    </style>
 </body>
 </html>
